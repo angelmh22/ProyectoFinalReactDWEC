@@ -7,7 +7,7 @@
 // donde podremos almacenar el estado de nuestro componente
 import React, { useState, useEffect } from 'react';
 // nos permite crear enlaces de navegación dentro de nuestra aplicación
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // nos da todos los personajes de la api
 import { getPersonajes } from '../../services/personajes';
 // incorporamos el estilo de la index
@@ -69,14 +69,12 @@ function Personajes() {
         {/* han cambiado, son agregados, o son eliminados. */}
         {personajesFiltrados.map((character, key) => (
           <div id={key} className="col" key={key}>
-            <NavLink to={`${character._id}`}>
-              <div>
-                <h4 id="nombre-personaje">{character.name}</h4>
-                <Link to={`${character._id}`}>
-                  <img src={`${character.imageUrl}`} width="300px" height="300px" alt="#" />
-                </Link>
-              </div>
-            </NavLink>
+            <div>
+              <h4 id="nombre-personaje">{character.name}</h4>
+              <Link to={`${character._id}`}>
+                <img src={`${character.imageUrl}`} width="300px" height="300px" alt="#" />
+              </Link>
+            </div>
           </div>
         ))}
       </div>
